@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('due_date')->nullable();
             $table->enum('status', ['pending', 'ongoing', 'completed'])->default('pending');
             $table->string('image')->nullable();
+            $table->foreignId('assigned_to')->constrained('users');
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
             $table->timestamps();

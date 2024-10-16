@@ -17,9 +17,20 @@ class Project extends Model
         'image',
         'created_by',
         'updated_by',
+        'assigned_to',
     ];
     public function tasks()
     {
         return $this->hasMany(Task::class);
+    } 
+    // Create by
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+    // Update by
+    public function updatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     } 
 }

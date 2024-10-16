@@ -22,8 +22,10 @@ class ProjectFactory extends Factory
             'due_date' => $this->faker->dateTimeBetween('now', '+1 year'),
             'status' => $this->faker->randomElement(['pending', 'ongoing', 'completed']),
             'image' => $this->faker->imageUrl(),
-            'created_by' => 1,
-            'updated_by' => 1,
+            // create_by and updated_by will be randomly assigned user id from the users table
+            'created_by' => $this->faker->numberBetween(1, 10),
+            'updated_by' => $this->faker->numberBetween(1, 10),
+            'assigned_to' => $this->faker->numberBetween(1, 5),
         ];
     }
 }
